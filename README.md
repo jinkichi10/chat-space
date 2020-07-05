@@ -1,0 +1,51 @@
+	
+# chat-space DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false,unique: true|
+|password|string|null: false|
+|username|string|null: false,unique: true|
+|group_id|integer|null: false, foreign_key: true|
+|message_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :message
+- has_many :groups_users
+- has_many  :group,  through:  :groups_users
+
+
+## messageテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false|
+|image|string||
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+has_many :group
+has_many :user
+
+## groupテーブル
+|Column|Type|Options|
+|------|----|-------|
+|groupname|text|null: false,unique: true|
+|message_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :message
+- has_many :groups_users
+- has_many  :users,  through:  :groups_users
+
+
+## groups_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
