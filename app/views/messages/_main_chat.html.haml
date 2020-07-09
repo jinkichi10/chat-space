@@ -1,0 +1,45 @@
+.chat-main
+  .RightHeader
+    %ul.RightHeader__Group
+      %li.RightHeader__Group__Groupname
+        test
+      %li.RightHeader__Group__member
+        Member:masa
+    .form
+      = link_to "#",class: 'editBtn' do
+        %input.edit{"name": "edit", "type": "submit", "value": "Edit"}
+
+
+  .MessageField
+    .MessageBox
+      .MessageInfo
+        .MessageInfo__userName
+          masa
+        .MessageInfo__date
+          2019/11/20(Wed)17:43:01
+      .Message
+        .Message__contents
+          おはよう！
+
+    .MessageBox
+      .MessageInfo
+        .MessageInfo__userName
+          masa
+        .MessageInfo__date
+          2019/11/20(Wed)17:43:34
+      .Message
+        .Message__contents
+          今日は夜から雨
+
+  .Footer
+    .Form
+      .Form__contents
+        %input#Form__contents.contents{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+        .Form__icon_Photo
+          %label{class: "input-box__image"}
+            = icon('fas', 'image',class: "input-box__image__icon")
+            %input{type: "file", class: "hidden"}
+
+    .icon_Send
+      %input{type: "submit", value: "Send",class: "submit__btn"}.
+      
