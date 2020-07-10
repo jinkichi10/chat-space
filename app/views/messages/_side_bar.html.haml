@@ -1,11 +1,12 @@
 .side-bar
   .LeftHeader
     .LeftHeader__list 
-      %h3.LeftHeader__username name
+      %h3.LeftHeader__username 
+        = current_user.name
       .LeftHeader__list__iconsList
         = link_to "#", class: 'LeftHeader__list__iconsList__edit' do
           = icon('far', 'edit')
-        = link_to "#", class: 'LeftHeader__list__iconsList__cog' do
+        = link_to edit_user_path(current_user), class: 'LeftHeader__list__iconsList__cog'do
           = icon('fa', 'cog')
 
   .GruopList
