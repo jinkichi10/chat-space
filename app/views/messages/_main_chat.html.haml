@@ -2,44 +2,29 @@
   .RightHeader
     %ul.RightHeader__Group
       %li.RightHeader__Group__Groupname
-        test
+        = @group.name
       %li.RightHeader__Group__member
-        Member:masa
+        Member:
+        - @group.users.each do |user|
+          = user.name
     .form
-      = link_to "#",class: 'editBtn' do
+      = link_to edit_group_path(@group), class: 'editBtn' do
         %input.edit{"name": "edit", "type": "submit", "value": "Edit"}
 
 
   .MessageField
-    .MessageBox
-      .MessageInfo
-        .MessageInfo__userName
-          masa
-        .MessageInfo__date
-          2019/11/20(Wed)17:43:01
-      .Message
-        .Message__contents
-          おはよう！
-
-    .MessageBox
-      .MessageInfo
-        .MessageInfo__userName
-          masa
-        .MessageInfo__date
-          2019/11/20(Wed)17:43:34
-      .Message
-        .Message__contents
-          今日は夜から雨
+    = render @messages
 
   .Footer
-    .Form
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Form__contents
-        %input#Form__contents.contents{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+        = f.text_field :content, class: 'contents', placeholder: 'type a message'
         .Form__icon_Photo
-          %label{class: "input-box__image"}
+          = f.label :image, class: 'input-box__image' do
             = icon('fas', 'image',class: "input-box__image__icon")
-            %input{type: "file", class: "hidden"}
+            = f.file_field :image, class: 'hidden'
 
-    .icon_Send
-      %input{type: "submit", value: "Send",class: "submit__btn"}.
+      .icon_Send
+        = f.submit 'Send', class: 'submit__btn'
       
+

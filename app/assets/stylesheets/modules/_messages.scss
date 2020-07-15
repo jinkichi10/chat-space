@@ -47,23 +47,25 @@
     background-color: #2f3e51;
     width: 300px;
     height: calc(100vh - 100px);
-    display: flex;
-    justify-content: center;
+    padding-left: 20px;
     .Group{
       width: 260px;
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
       flex-direction: column;
-      color: #ffffff;
       &__name{
         font-size: 15px;
         padding-top: 20px;
+        color: #ffffff;
+
       }
       &__message{
         font-size: 11px;
         padding-top: 5px;
         padding-bottom: 40px;
+        color: #ffffff;
+
       }
     }
   }
