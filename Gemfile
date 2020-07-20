@@ -68,3 +68,4 @@ end
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'faker'
+  gem 'jquery-rails'

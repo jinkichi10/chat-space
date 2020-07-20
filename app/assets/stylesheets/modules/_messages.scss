@@ -114,7 +114,7 @@
   .MessageField{
     background-color: #fafafa;
     height: calc(100vh - 100px - 90px);
-    
+    overflow: scroll;
     .MessageBox{
       padding-left: 40px;
       padding-top: 35px;
